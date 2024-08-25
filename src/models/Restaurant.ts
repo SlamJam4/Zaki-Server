@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { IOrganization } from '@/models/Organization';
+import { IAdCampaign } from '@/models/AdCampaign';
 
 export interface IRestaurant extends Document {
   organization: IOrganization['_id'];
@@ -29,6 +30,7 @@ export interface IRestaurant extends Document {
       close: string;
     };
   };
+  activeAdCampaign: IAdCampaign['_id'] | null;
 }
 
 const RestaurantSchema: Schema = new Schema({
@@ -62,6 +64,7 @@ const RestaurantSchema: Schema = new Schema({
     saturday: { open: String, close: String },
     sunday: { open: String, close: String },
   },
+  activeAdCampaign: { type: Schema.Types.ObjectId, ref: 'AdCampaign', default: null },
 });
 
 export default mongoose.model<IRestaurant>('Restaurant', RestaurantSchema);

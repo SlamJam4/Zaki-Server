@@ -7,6 +7,7 @@ import organizationRoutes from '@/routes/organizationRoutes';
 import restaurantRoutes from '@/routes/restaurantRoutes';
 import userRoutes from '@/routes/userRoutes';
 import bookingRoutes from '@/routes/bookingRoutes';
+import adCampaignRoutes from '@/routes/adCampaignRoutes';
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use('/api/organizations', organizationRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/adcampaigns', adCampaignRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to Zaki Table Booking API');
